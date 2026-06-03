@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlashFit — Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
+  <link rel="stylesheet" href="styles/dashboard.css">
+</head>
+<body>
+  <div class="app">
+
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <div class="topbar__left">
+        <div class="logo-placeholder" title="FlashFit"></div>
+        <div class="search-pill">
+          <i class="ti ti-search"></i>
+          <input type="text" id="searchInput" placeholder="Search decks..." autocomplete="off">
+        </div>
+      </div>
+
+      <nav class="topbar__center">
+        <a href="index.html" class="topbar__nav-link">Home</a>
+        <a href="dashboard.html" class="topbar__nav-link topbar__nav-link--active">Dashboard</a>
+        <a href="about.html" class="topbar__nav-link">About</a>
+      </nav>
+
+      <div class="topbar__right">
+        <div class="pill pill--timer">
+          <i class="ti ti-eye" style="color: var(--accent-blue);"></i>
+          <span id="timerDisplay">20:00</span>
+          <div class="popup popup--timer">
+            <div class="popup__title" style="color: var(--accent-blue);">The 20-20-20 rule</div>
+            <p class="popup__desc">Protect your eyes during long study sessions</p>
+            <div class="popup__rules">
+              <div class="popup__rule">
+                <span class="badge-20">20</span>
+                <span>Every <strong>20 minutes</strong> of screen time</span>
+              </div>
+              <div class="popup__rule">
+                <span class="badge-20">20</span>
+                <span>Look at something <strong>20 feet away</strong></span>
+              </div>
+              <div class="popup__rule">
+                <span class="badge-20">20</span>
+                <span>For at least <strong>20 seconds</strong></span>
+              </div>
+            </div>
+            <div class="popup__timer-display">
+              <i class="ti ti-eye" style="color: var(--accent-blue); font-size: 18px;"></i>
+              <div>
+                <div class="popup__timer-value" id="popupTimerDisplay">20:00</div>
+                <div class="popup__timer-label">until your next eye break</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pill pill--hearts">
+          <i class="ti ti-heart" style="color: var(--accent-pink);"></i>
+          <span id="heartsDisplay">3 hearts</span>
+          <div class="popup popup--hearts">
+            <div class="popup__title" style="color: var(--accent-pink);">Hearts system</div>
+            <p class="popup__desc">Your hearts track how well you are studying. Stay sharp to keep them full.</p>
+            <div class="popup__items">
+              <div class="popup__item">
+                <div class="popup__item-icon" style="background:rgba(255,77,139,0.12); border-color:rgba(255,77,139,0.22);">
+                  <i class="ti ti-heart-broken" style="color: var(--accent-pink);"></i>
+                </div>
+                <div>
+                  <div class="popup__item-title">Lose a heart</div>
+                  <div class="popup__item-desc">Press Again when you do not know a card</div>
+                </div>
+              </div>
+              <div class="popup__item">
+                <div class="popup__item-icon" style="background:rgba(35,209,139,0.12); border-color:rgba(35,209,139,0.22);">
+                  <i class="ti ti-run" style="color: var(--accent-green);"></i>
+                </div>
+                <div>
+                  <div class="popup__item-title">Restore hearts</div>
+                  <div class="popup__item-desc">Complete a break exercise to earn them back</div>
+                </div>
+              </div>
+              <div class="popup__item">
+                <div class="popup__item-icon" style="background:rgba(77,159,255,0.12); border-color:rgba(77,159,255,0.22);">
+                  <i class="ti ti-shield-check" style="color: var(--accent-blue);"></i>
+                </div>
+                <div>
+                  <div class="popup__item-title">Keep them full</div>
+                  <div class="popup__item-desc">Max 5 hearts. Review cards consistently to stay topped up</div>
+                </div>
+              </div>
+            </div>
+            <div class="popup__hearts-footer">
+              <div class="popup__hearts-icons" id="popupHeartsIcons"></div>
+              <div class="popup__hearts-label" id="popupHeartsLabel">3 of 5 hearts remaining</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="app__body">
+
+      <!-- SIDEBAR -->
+      <nav class="sidebar">
+        <div class="sidebar__nav">
+          <a href="dashboard.html" class="sidebar__btn sidebar__btn--active sidebar__link">
+            <i class="ti ti-layout-cards"></i><span>My Decks</span>
+          </a>
+          <a href="study.html" class="sidebar__btn sidebar__link">
+            <i class="ti ti-bolt"></i><span>Study</span>
+          </a>
+          <a href="wellness.html" class="sidebar__btn sidebar__link">
+            <i class="ti ti-heart"></i><span>Wellness</span>
+          </a>
+        </div>
+        <div class="sidebar__footer">
+          <div class="sidebar__divider"></div>
+          <div class="sidebar__wellness-mini">
+            <div class="sidebar__wellness-label">Today</div>
+            <div class="sidebar__wellness-row">
+              <i class="ti ti-clock" style="color:var(--accent-blue);"></i>
+              <span>Sessions</span>
+              <span class="sidebar__wellness-val" id="sidebarSessions">0</span>
+            </div>
+            <div class="sidebar__wellness-row">
+              <i class="ti ti-run" style="color:var(--accent-green);"></i>
+              <span>Exercises</span>
+              <span class="sidebar__wellness-val" id="sidebarExercises">0</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- MAIN -->
+      <div class="main-wrap">
+        <div class="main-inner">
+
+          <div class="page-header">
+            <div class="page-header__label">Your library</div>
+            <h1 class="page-header__title">My <span>Decks</span></h1>
+          </div>
+
+          <div class="stats-row">
+            <div class="stat-card">
+              <div class="stat-card__label">Total Decks</div>
+              <div class="stat-card__value stat-card__value--blue" id="statDecks">0</div>
+              <div class="stat-card__sub">across all subjects</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-card__label">Cards Studied</div>
+              <div class="stat-card__value stat-card__value--blue" id="statCards">0</div>
+              <div class="stat-card__sub">this week</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-card__label">Study Streak</div>
+              <div class="stat-card__value stat-card__value--green" id="statStreak">0 days</div>
+              <div class="stat-card__sub">keep it up</div>
+            </div>
+          </div>
+
+          <div>
+            <div class="section-label">Your decks</div>
+            <div class="decks-grid" id="decksGrid"></div>
+          </div>
+
+          <div class="bottom-grid">
+            <div>
+              <div class="section-label">Quick actions</div>
+              <div class="quick-actions">
+                <div class="action-row" id="startSessionBtn">
+                  <div class="action-row__icon action-row__icon--blue">
+                    <i class="ti ti-player-play"></i>
+                  </div>
+                  <div class="action-row__text">
+                    <div class="action-row__title">Start Session</div>
+                    <div class="action-row__desc">Begin a Pomodoro study block</div>
+                  </div>
+                </div>
+                <div class="action-row" id="wellnessCheckBtn">
+                  <div class="action-row__icon action-row__icon--green">
+                    <i class="ti ti-heart"></i>
+                  </div>
+                  <div class="action-row__text">
+                    <div class="action-row__title">Wellness Check</div>
+                    <div class="action-row__desc">View your health stats</div>
+                  </div>
+                </div>
+                <div class="action-row" id="aboutBtn">
+                  <div class="action-row__icon action-row__icon--blue">
+                    <i class="ti ti-info-circle"></i>
+                  </div>
+                  <div class="action-row__text">
+                    <div class="action-row__title">About FlashFit</div>
+                    <div class="action-row__desc">Learn more about this project</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="section-label">Today's wellness</div>
+              <div class="wellness-panel">
+                <div class="wellness-row">
+                  <div class="wellness-row__left">
+                    <i class="ti ti-clock" style="color: var(--accent-blue);"></i>
+                    <span>Sessions Done</span>
+                  </div>
+                  <span class="wellness-row__value wellness-row__value--blue" id="sessionsDone">0</span>
+                </div>
+                <div class="wellness-row">
+                  <div class="wellness-row__left">
+                    <i class="ti ti-run" style="color: var(--accent-green);"></i>
+                    <span>Exercises Done</span>
+                  </div>
+                  <span class="wellness-row__value wellness-row__value--green" id="exercisesDone">0</span>
+                </div>
+                <div class="mood-section">
+                  <div class="mood-section__label">Mood Check-in</div>
+                  <div class="mood-btns" id="moodBtns">
+                    <button class="mood-btn" data-mood="1">1</button>
+                    <button class="mood-btn" data-mood="2">2</button>
+                    <button class="mood-btn" data-mood="3">3</button>
+                    <button class="mood-btn" data-mood="4">4</button>
+                    <button class="mood-btn" data-mood="5">5</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Eye Break Toast -->
+  <div class="toast" id="eyeToast" style="display:none;">
+    <i class="ti ti-eye" style="color: var(--accent-blue); flex-shrink:0;"></i>
+    <span>Time for your eye break. Look at something 20 feet away for 20 seconds.</span>
+    <button class="toast__btn" id="toastDismiss">Got it</button>
+  </div>
+
+  <!-- Add Deck Modal -->
+  <div class="modal-overlay" id="modalOverlay" style="display:none;">
+    <div class="modal">
+      <div class="modal__header">
+        <h2>New Deck</h2>
+        <button class="modal__close" id="modalClose"><i class="ti ti-x"></i></button>
+      </div>
+      <div class="modal__body">
+        <label class="form-label">Deck Name</label>
+        <input type="text" class="form-input" id="deckNameInput" placeholder="e.g. Math Finals">
+        <label class="form-label" style="margin-top:16px;">Subject Icon</label>
+        <div class="icon-picker" id="iconPicker">
+          <button class="icon-option active" data-icon="∑">∑</button>
+          <button class="icon-option" data-icon="📖">📖</button>
+          <button class="icon-option" data-icon="🧪">🧪</button>
+          <button class="icon-option" data-icon="🌍">🌍</button>
+          <button class="icon-option" data-icon="💻">💻</button>
+          <button class="icon-option" data-icon="🎵">🎵</button>
+        </div>
+      </div>
+      <div class="modal__footer">
+        <button class="btn btn--ghost" id="modalCancel">Cancel</button>
+        <button class="btn btn--primary" id="modalConfirm">Create Deck</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="scripts/dashboard.js"></script>
+</body>
+</html>

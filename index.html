@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlashFit — Study Smarter. Stay Healthier.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
+  <link rel="stylesheet" href="styles/dashboard.css">
+  <link rel="stylesheet" href="styles/index.css">
+</head>
+<body class="page--landing">
+  <div class="app">
+
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <div class="topbar__left">
+        <div class="logo-placeholder" title="FlashFit"></div>
+      </div>
+
+      <nav class="topbar__center">
+        <a href="index.html" class="topbar__nav-link topbar__nav-link--active">Home</a>
+        <a href="dashboard.html" class="topbar__nav-link">Dashboard</a>
+        <a href="about.html" class="topbar__nav-link">About</a>
+      </nav>
+
+      <div class="topbar__right">
+        <div class="pill pill--timer">
+          <i class="ti ti-eye" style="color: var(--accent-blue);"></i>
+          <span id="timerDisplay">20:00</span>
+          <div class="popup popup--timer">
+            <div class="popup__title" style="color: var(--accent-blue);">The 20-20-20 rule</div>
+            <p class="popup__desc">Protect your eyes during long study sessions</p>
+            <div class="popup__rules">
+              <div class="popup__rule">
+                <span class="badge-20">20</span>
+                <span>Every <strong>20 minutes</strong> of screen time</span>
+              </div>
+              <div class="popup__rule">
+                <span class="badge-20">20</span>
+                <span>Look at something <strong>20 feet away</strong></span>
+              </div>
+              <div class="popup__rule">
+                <span class="badge-20">20</span>
+                <span>For at least <strong>20 seconds</strong></span>
+              </div>
+            </div>
+            <div class="popup__timer-display">
+              <i class="ti ti-eye" style="color: var(--accent-blue); font-size: 18px;"></i>
+              <div>
+                <div class="popup__timer-value" id="popupTimerDisplay">20:00</div>
+                <div class="popup__timer-label">until your next eye break</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pill pill--hearts">
+          <i class="ti ti-heart" style="color: var(--accent-pink);"></i>
+          <span id="heartsDisplay">3 hearts</span>
+          <div class="popup popup--hearts">
+            <div class="popup__title" style="color: var(--accent-pink);">Hearts system</div>
+            <p class="popup__desc">Your hearts track how well you are studying. Stay sharp to keep them full.</p>
+            <div class="popup__items">
+              <div class="popup__item">
+                <div class="popup__item-icon" style="background:rgba(255,77,139,0.12); border-color:rgba(255,77,139,0.22);">
+                  <i class="ti ti-heart-broken" style="color: var(--accent-pink);"></i>
+                </div>
+                <div>
+                  <div class="popup__item-title">Lose a heart</div>
+                  <div class="popup__item-desc">Press Again when you do not know a card</div>
+                </div>
+              </div>
+              <div class="popup__item">
+                <div class="popup__item-icon" style="background:rgba(35,209,139,0.12); border-color:rgba(35,209,139,0.22);">
+                  <i class="ti ti-run" style="color: var(--accent-green);"></i>
+                </div>
+                <div>
+                  <div class="popup__item-title">Restore hearts</div>
+                  <div class="popup__item-desc">Complete a break exercise to earn them back</div>
+                </div>
+              </div>
+              <div class="popup__item">
+                <div class="popup__item-icon" style="background:rgba(77,159,255,0.12); border-color:rgba(77,159,255,0.22);">
+                  <i class="ti ti-shield-check" style="color: var(--accent-blue);"></i>
+                </div>
+                <div>
+                  <div class="popup__item-title">Keep them full</div>
+                  <div class="popup__item-desc">Max 5 hearts. Review cards consistently to stay topped up</div>
+                </div>
+              </div>
+            </div>
+            <div class="popup__hearts-footer">
+              <div class="popup__hearts-icons" id="popupHeartsIcons"></div>
+              <div class="popup__hearts-label" id="popupHeartsLabel">3 of 5 hearts remaining</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- LANDING MAIN -->
+    <main class="landing">
+
+      <!-- Hero — side-by-side split -->
+      <section class="hero">
+
+        <!-- Left: text content -->
+        <div class="hero__left">
+          <div class="hero__badge">
+            <i class="ti ti-bolt"></i>
+            <span>FLASHCARDS · FOCUS · WELLNESS</span>
+          </div>
+
+          <h1 class="hero__headline">
+            <span class="hero__headline--white">Study smarter.</span>
+            <span class="hero__headline--blue">Stay healthier.</span>
+          </h1>
+
+          <p class="hero__sub">
+            Combine spaced-repetition flashcards with Pomodoro sessions,
+            exercise breaks, and built-in wellness tracking, all in one place.
+          </p>
+
+          <div class="hero__ctas">
+            <a href="dashboard.html" class="cta-primary">
+              <i class="ti ti-layout-cards"></i>
+              Open Dashboard
+              <i class="ti ti-arrow-right"></i>
+            </a>
+            <a href="about.html" class="cta-ghost">
+              Learn more
+              <i class="ti ti-chevron-down"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: app preview -->
+        <div class="hero__right">
+          <div class="app-preview">
+
+            <div class="preview__header">
+              <div>
+                <div class="preview__eyebrow">Your library</div>
+                <div class="preview__title">My <span>Decks</span></div>
+              </div>
+              <div class="preview__search">
+                <i class="ti ti-search"></i>
+                <span>Search decks...</span>
+              </div>
+            </div>
+
+            <div class="preview__stats">
+              <div class="preview__stat">
+                <div class="preview__stat-label">Total Decks</div>
+                <div class="preview__stat-value preview__stat-value--blue">3</div>
+                <div class="preview__stat-sub">across all subjects</div>
+              </div>
+              <div class="preview__stat">
+                <div class="preview__stat-label">Cards Studied</div>
+                <div class="preview__stat-value preview__stat-value--blue">248</div>
+                <div class="preview__stat-sub">this week</div>
+              </div>
+              <div class="preview__stat">
+                <div class="preview__stat-label">Study Streak</div>
+                <div class="preview__stat-value preview__stat-value--green">4 days</div>
+                <div class="preview__stat-sub">keep it up</div>
+              </div>
+            </div>
+
+            <div class="preview__decks">
+              <div class="preview__deck preview__deck--green">
+                <div class="preview__deck-icon">∑</div>
+                <div class="preview__deck-name">Math Finals</div>
+                <div class="preview__deck-meta">3 cards · Yesterday</div>
+                <div class="preview__deck-bar">
+                  <div class="preview__deck-fill" style="width:40%; background:var(--accent-green);"></div>
+                </div>
+                <div class="preview__deck-btn">Study Now</div>
+              </div>
+              <div class="preview__deck preview__deck--pink">
+                <div class="preview__deck-icon">📖</div>
+                <div class="preview__deck-name">History Notes</div>
+                <div class="preview__deck-meta">3 cards · 2 days ago</div>
+                <div class="preview__deck-bar">
+                  <div class="preview__deck-fill" style="width:55%; background:var(--accent-pink);"></div>
+                </div>
+                <div class="preview__deck-btn">Study Now</div>
+              </div>
+              <div class="preview__deck preview__deck--blue">
+                <div class="preview__deck-icon">🧪</div>
+                <div class="preview__deck-name">Biology Ch. 3</div>
+                <div class="preview__deck-meta">0 cards · Never</div>
+                <div class="preview__deck-bar">
+                  <div class="preview__deck-fill" style="width:0%;"></div>
+                </div>
+                <div class="preview__deck-btn">Study Now</div>
+              </div>
+              <div class="preview__deck preview__deck--new">
+                <div class="preview__new-circle">
+                  <i class="ti ti-plus"></i>
+                </div>
+                <span>New Deck</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Feature strip -->
+      <section class="features">
+        <div class="feature">
+          <div class="feature__icon feature__icon--blue">
+            <i class="ti ti-layout-cards"></i>
+          </div>
+          <div>
+            <div class="feature__title">Smart Flashcards</div>
+            <div class="feature__sub">Flip-based study with a hearts system</div>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="feature__icon feature__icon--blue">
+            <i class="ti ti-clock"></i>
+          </div>
+          <div>
+            <div class="feature__title">Pomodoro Focus</div>
+            <div class="feature__sub">Structured timed study blocks</div>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="feature__icon feature__icon--green">
+            <i class="ti ti-heart"></i>
+          </div>
+          <div>
+            <div class="feature__title">Wellness Breaks</div>
+            <div class="feature__sub">Exercises, eye care & mood tracking</div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Eye Break Toast -->
+  <div class="toast" id="eyeToast" style="display:none;">
+    <i class="ti ti-eye" style="color: var(--accent-blue); flex-shrink:0;"></i>
+    <span>Time for your eye break. Look at something 20 feet away for 20 seconds.</span>
+    <button class="toast__btn" id="toastDismiss">Got it</button>
+  </div>
+
+  <script src="scripts/index.js"></script>
+</body>
+</html>

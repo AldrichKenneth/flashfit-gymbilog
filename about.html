@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlashFit — About</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
+  <link rel="stylesheet" href="styles/dashboard.css">
+  <link rel="stylesheet" href="styles/about.css">
+</head>
+<body>
+  <div class="app">
+
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <div class="topbar__left">
+        <div class="logo-placeholder" title="FlashFit"></div>
+      </div>
+      <nav class="topbar__center">
+        <a href="index.html" class="topbar__nav-link">Home</a>
+        <a href="dashboard.html" class="topbar__nav-link">Dashboard</a>
+        <a href="about.html" class="topbar__nav-link topbar__nav-link--active">About</a>
+      </nav>
+      <div class="topbar__right">
+        <div class="pill pill--timer">
+          <i class="ti ti-eye" style="color: var(--accent-blue);"></i>
+          <span id="timerDisplay">20:00</span>
+          <div class="popup popup--timer">
+            <div class="popup__title" style="color: var(--accent-blue);">The 20-20-20 rule</div>
+            <p class="popup__desc">Protect your eyes during long study sessions</p>
+            <div class="popup__rules">
+              <div class="popup__rule"><span class="badge-20">20</span><span>Every <strong>20 minutes</strong> of screen time</span></div>
+              <div class="popup__rule"><span class="badge-20">20</span><span>Look at something <strong>20 feet away</strong></span></div>
+              <div class="popup__rule"><span class="badge-20">20</span><span>For at least <strong>20 seconds</strong></span></div>
+            </div>
+            <div class="popup__timer-display">
+              <i class="ti ti-eye" style="color: var(--accent-blue); font-size: 18px;"></i>
+              <div>
+                <div class="popup__timer-value" id="popupTimerDisplay">20:00</div>
+                <div class="popup__timer-label">until your next eye break</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pill pill--hearts">
+          <i class="ti ti-heart" style="color: var(--accent-pink);"></i>
+          <span id="heartsDisplay">3 hearts</span>
+          <div class="popup popup--hearts">
+            <div class="popup__title" style="color: var(--accent-pink);">Hearts system</div>
+            <p class="popup__desc">Your hearts track how well you are studying. Stay sharp to keep them full.</p>
+            <div class="popup__items">
+              <div class="popup__item">
+                <div class="popup__item-icon" style="background:rgba(255,77,139,0.12); border-color:rgba(255,77,139,0.22);">
+                  <i class="ti ti-heart-broken" style="color: var(--accent-pink);"></i>
+                </div>
+                <div>
+                  <div class="popup__item-title">Lose a heart</div>
+                  <div class="popup__item-desc">Press Again when you do not know a card</div>
+                </div>
+              </div>
+              <div class="popup__item">
+                <div class="popup__item-icon" style="background:rgba(35,209,139,0.12); border-color:rgba(35,209,139,0.22);">
+                  <i class="ti ti-run" style="color: var(--accent-green);"></i>
+                </div>
+                <div>
+                  <div class="popup__item-title">Restore hearts</div>
+                  <div class="popup__item-desc">Complete a break exercise to earn them back</div>
+                </div>
+              </div>
+              <div class="popup__item">
+                <div class="popup__item-icon" style="background:rgba(77,159,255,0.12); border-color:rgba(77,159,255,0.22);">
+                  <i class="ti ti-shield-check" style="color: var(--accent-blue);"></i>
+                </div>
+                <div>
+                  <div class="popup__item-title">Keep them full</div>
+                  <div class="popup__item-desc">Max 5 hearts. Review cards consistently to stay topped up</div>
+                </div>
+              </div>
+            </div>
+            <div class="popup__hearts-footer">
+              <div class="popup__hearts-icons" id="popupHeartsIcons"></div>
+              <div class="popup__hearts-label" id="popupHeartsLabel">3 of 5 hearts remaining</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ABOUT MAIN -->
+    <main class="about">
+      <div class="about__inner">  
+        <!-- HERO -->
+        <section class="about__hero">
+            <div class="about__hero-logo">
+            <div class="about__logo-mark">
+                <span>FF</span>
+            </div>
+            </div>
+            <div class="about__hero-text">
+            <div class="about__badge about__badge--blue">
+                <i class="ti ti-info-circle"></i>
+                <span>ABOUT THE PROJECT</span>
+            </div>
+            <h1 class="about__hero-title">FlashFit</h1>
+            <p class="about__hero-sub">A wellness-integrated flashcard study platform built for Filipino students who deserve more than just another study tool.</p>
+            <div class="about__badge about__badge--green">
+                <i class="ti ti-users"></i>
+                <span>BUILT BY GYM BILOG</span>
+            </div>
+            </div>
+        </section>
+
+        <!-- PROBLEM -->
+        <section class="about__problem">
+            <div class="about__problem-text">
+            <div class="about__section-label">The Problem</div>
+            <h2 class="about__section-title">Students deserve better than burnout.</h2>
+            <p>Filipino high school and college students increasingly depend on digital platforms as alternatives to outdated learning materials and limited educational resources. Yet every platform available today focuses exclusively on academic performance, treating the well-being of its users as an afterthought.</p>
+            <p>Students who rely on these tools often study in long, unbroken sessions that quietly accumulate eye strain and mental fatigue. The situation is made worse by the added pressure of daily long commutes and heavy academic loads that leave little room for recovery between sessions.</p>
+            <p>No widely accessible digital study platform integrates wellness support into the learning experience, leaving students to treat academic performance and personal well-being as two entirely separate concerns. FlashFit was built to close that gap.</p>
+            </div>
+            <div class="about__problem-cards">
+            <div class="about__accent-card about__accent-card--blue">
+                <div class="about__accent-card-label">The Gap</div>
+                <p>No widely accessible platform integrates wellness support into the digital learning experience for students.</p>
+            </div>
+            <div class="about__accent-card about__accent-card--pink">
+                <div class="about__accent-card-label">The Cost</div>
+                <p>Students are left to treat academic performance and personal well-being as two entirely separate concerns.</p>
+            </div>
+            <div class="about__accent-card about__accent-card--green">
+                <div class="about__accent-card-label">Our Answer</div>
+                <p>FlashFit unifies both into a single platform designed around the whole student, not just their grades.</p>
+            </div>
+            </div>
+        </section>
+
+        <!-- FEATURES -->
+        <section class="about__features">
+            <div class="about__section-header">
+            <div class="about__section-label">Key Features</div>
+            <h2 class="about__section-title">Everything you need, in one place.</h2>
+            </div>
+            <div class="about__features-grid">
+            <div class="about__feature-card about__feature-card--blue">
+                <div class="about__feature-icon about__feature-icon--blue">
+                <i class="ti ti-layout-cards"></i>
+                </div>
+                <h3>Flashcard Study</h3>
+                <p>Build custom decks for any subject and study through a flip-based card interface. The hearts system keeps you honest: mark a card wrong and you lose a heart. Restore them through exercise breaks to keep your session going.</p>
+            </div>
+            <div class="about__feature-card about__feature-card--blue">
+                <div class="about__feature-icon about__feature-icon--blue">
+                <i class="ti ti-clock"></i>
+                </div>
+                <h3>Pomodoro Focus</h3>
+                <p>Stay in the zone with customizable timed study blocks. FlashFit structures your session into focused intervals separated by short breaks, helping you work with your attention span instead of pushing through exhaustion.</p>
+            </div>
+            <div class="about__feature-card about__feature-card--green">
+                <div class="about__feature-icon about__feature-icon--green">
+                <i class="ti ti-heart"></i>
+                </div>
+                <h3>Wellness System</h3>
+                <p>Built-in wellness features run quietly alongside your study session. The 20-20-20 eye care timer fires every 20 minutes, exercise breaks restore lost hearts, and the Wellness Hub tracks your mood, streak, and activity over time.</p>
+            </div>
+            </div>
+        </section>
+
+        <!-- HOW IT WORKS -->
+        <section class="about__hiw">
+            <div class="about__section-header">
+            <div class="about__section-label">How It Works</div>
+            <h2 class="about__section-title">Four steps to a better study session.</h2>
+            </div>
+            <div class="about__steps">
+            <div class="about__step">
+                <div class="about__step-num about__step-num--blue">1</div>
+                <i class="ti ti-plus" aria-hidden="true"></i>
+                <h3>Build a Deck</h3>
+                <p>Add study cards organized by subject. Create as many decks as you need and edit them at any time from the dashboard.</p>
+            </div>
+            <div class="about__step">
+                <div class="about__step-num about__step-num--blue">2</div>
+                <i class="ti ti-player-play" aria-hidden="true"></i>
+                <h3>Start a Session</h3>
+                <p>Launch the Pomodoro timer and pick the deck you want to review. Set your own focus and break durations to match your pace.</p>
+            </div>
+            <div class="about__step">
+                <div class="about__step-num about__step-num--blue">3</div>
+                <i class="ti ti-layout-cards" aria-hidden="true"></i>
+                <h3>Study with Hearts</h3>
+                <p>Flip through your cards. Mark what you know, and lose a heart for every card you get wrong. Honesty keeps you sharp.</p>
+            </div>
+            <div class="about__step about__step--green">
+                <div class="about__step-num about__step-num--green">4</div>
+                <i class="ti ti-run" aria-hidden="true"></i>
+                <h3>Take a Break</h3>
+                <p>When the timer ends, complete a short exercise to restore your hearts, rest your eyes, and reset your focus for the next block.</p>
+            </div>
+            </div>
+        </section>
+
+        <!-- TECH STACK -->
+        <section class="about__tech">
+            <div class="about__tech-text">
+            <div class="about__section-label">Built With</div>
+            <h2 class="about__section-title">Pure web. No frameworks.</h2>
+            <p>FlashFit is built entirely with vanilla HTML, CSS, and JavaScript. State persists across sessions using the browser's localStorage API. No build tools, no dependencies, no frameworks. Just clean, intentional code designed to run in any browser without setup or installation.</p>
+            </div>
+            <div class="about__tech-badges">
+            <div class="about__tech-badge about__tech-badge--pink">HTML5</div>
+            <div class="about__tech-badge about__tech-badge--blue">CSS3</div>
+            <div class="about__tech-badge about__tech-badge--yellow">JavaScript</div>
+            <div class="about__tech-badge about__tech-badge--green">localStorage API</div>
+            <div class="about__tech-badge about__tech-badge--muted">Tabler Icons</div>
+            <div class="about__tech-badge about__tech-badge--muted">Google Fonts</div>
+            <div class="about__tech-badge about__tech-badge--muted">Plus Jakarta Sans</div>
+            </div>
+        </section>
+
+        <!-- TEAM -->
+        <section class="about__team">
+            <div class="about__section-header">
+            <div class="about__section-label">Meet the Team</div>
+            <h2 class="about__section-title">The people behind FlashFit.</h2>
+            </div>
+            <div class="about__team-badge">
+            <i class="ti ti-users"></i>
+            <span>GYM BILOG</span>
+            </div>
+            <div class="about__team-grid">
+            <div class="about__member">
+                <div class="about__member-avatar about__member-avatar--blue">A</div>
+                <div class="about__member-name">Alvin</div>
+                <div class="about__member-role">Team Member</div>
+            </div>
+            <div class="about__member">
+                <div class="about__member-avatar about__member-avatar--green">K</div>
+                <div class="about__member-name">Kian</div>
+                <div class="about__member-role">Team Member</div>
+            </div>
+            <div class="about__member">
+                <div class="about__member-avatar about__member-avatar--pink">K</div>
+                <div class="about__member-name">Kenneth</div>
+                <div class="about__member-role">Team Member</div>
+            </div>
+            <div class="about__member">
+                <div class="about__member-avatar about__member-avatar--yellow">L</div>
+                <div class="about__member-name">Levan</div>
+                <div class="about__member-role">Team Member</div>
+            </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="about__cta">
+            <div class="about__section-label">Ready to study?</div>
+            <h2 class="about__cta-title">Start using FlashFit today.</h2>
+            <p class="about__cta-sub">No account needed. Open the dashboard and start building your first deck in seconds.</p>
+            <a href="dashboard.html" class="about__cta-btn">
+            <i class="ti ti-layout-cards"></i>
+            Open Dashboard
+            <i class="ti ti-arrow-right"></i>
+            </a>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="about__footer">
+            <span>© 2026 FlashFit. All rights reserved.</span>
+        </footer>
+      </div>  
+    </main>
+  </div>
+
+  <!-- Eye Break Toast -->
+  <div class="toast" id="eyeToast" style="display:none;">
+    <i class="ti ti-eye" style="color: var(--accent-blue); flex-shrink:0;"></i>
+    <span>Time for your eye break. Look at something 20 feet away for 20 seconds.</span>
+    <button class="toast__btn" id="toastDismiss">Got it</button>
+  </div>
+
+  <script src="scripts/about.js"></script>
+</body>
+</html>

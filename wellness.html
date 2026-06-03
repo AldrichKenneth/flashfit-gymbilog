@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlashFit — Wellness</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
+  <link rel="stylesheet" href="styles/dashboard.css">
+  <link rel="stylesheet" href="styles/wellness.css">
+</head>
+<body>
+  <div class="app">
+
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <div class="topbar__left">
+        <div class="logo-placeholder" title="FlashFit"></div>
+      </div>
+
+      <nav class="topbar__center">
+        <a href="index.html" class="topbar__nav-link">Home</a>
+        <a href="dashboard.html" class="topbar__nav-link topbar__nav-link--active">Dashboard</a>
+        <a href="about.html" class="topbar__nav-link">About</a>
+      </nav>
+
+      <div class="topbar__right">
+        <div class="pill pill--timer">
+          <i class="ti ti-eye" style="color:var(--accent-blue);"></i>
+          <span id="timerDisplay">20:00</span>
+          <div class="popup popup--timer">
+            <div class="popup__title" style="color:var(--accent-blue);">The 20-20-20 rule</div>
+            <p class="popup__desc">Protect your eyes during long study sessions</p>
+            <div class="popup__rules">
+              <div class="popup__rule"><span class="badge-20">20</span><span>Every <strong>20 minutes</strong> of screen time</span></div>
+              <div class="popup__rule"><span class="badge-20">20</span><span>Look at something <strong>20 feet away</strong></span></div>
+              <div class="popup__rule"><span class="badge-20">20</span><span>For at least <strong>20 seconds</strong></span></div>
+            </div>
+            <div class="popup__timer-display">
+              <i class="ti ti-eye" style="color:var(--accent-blue);font-size:18px;"></i>
+              <div>
+                <div class="popup__timer-value" id="popupTimerDisplay">20:00</div>
+                <div class="popup__timer-label">until your next eye break</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pill pill--hearts">
+          <i class="ti ti-heart" style="color:var(--accent-pink);"></i>
+          <span id="heartsDisplay">3 hearts</span>
+          <div class="popup popup--hearts">
+            <div class="popup__title" style="color:var(--accent-pink);">Hearts system</div>
+            <p class="popup__desc">Your hearts track how well you are studying. Stay sharp to keep them full.</p>
+            <div class="popup__items">
+              <div class="popup__item">
+                <div class="popup__item-icon" style="background:rgba(255,77,139,0.12);border-color:rgba(255,77,139,0.22);"><i class="ti ti-heart-broken" style="color:var(--accent-pink);"></i></div>
+                <div><div class="popup__item-title">Lose a heart</div><div class="popup__item-desc">Press Again when you do not know a card</div></div>
+              </div>
+              <div class="popup__item">
+                <div class="popup__item-icon" style="background:rgba(35,209,139,0.12);border-color:rgba(35,209,139,0.22);"><i class="ti ti-run" style="color:var(--accent-green);"></i></div>
+                <div><div class="popup__item-title">Restore hearts</div><div class="popup__item-desc">Complete a break exercise to earn them back</div></div>
+              </div>
+              <div class="popup__item">
+                <div class="popup__item-icon" style="background:rgba(77,159,255,0.12);border-color:rgba(77,159,255,0.22);"><i class="ti ti-shield-check" style="color:var(--accent-blue);"></i></div>
+                <div><div class="popup__item-title">Keep them full</div><div class="popup__item-desc">Max 5 hearts. Review cards consistently</div></div>
+              </div>
+            </div>
+            <div class="popup__hearts-footer">
+              <div class="popup__hearts-icons" id="popupHeartsIcons"></div>
+              <div class="popup__hearts-label" id="popupHeartsLabel">3 of 5 hearts remaining</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="app__body">
+
+      <!-- SIDEBAR -->
+      <nav class="sidebar">
+        <div class="sidebar__nav">
+          <a href="dashboard.html" class="sidebar__btn sidebar__link">
+            <i class="ti ti-layout-cards"></i><span>My Decks</span>
+          </a>
+          <a href="study.html" class="sidebar__btn sidebar__link">
+            <i class="ti ti-bolt"></i><span>Study</span>
+          </a>
+          <a href="wellness.html" class="sidebar__btn sidebar__btn--active sidebar__link">
+            <i class="ti ti-heart"></i><span>Wellness</span>
+          </a>
+        </div>
+        <div class="sidebar__footer">
+          <div class="sidebar__divider"></div>
+          <div class="sidebar__wellness-mini">
+            <div class="sidebar__wellness-label">Today</div>
+            <div class="sidebar__wellness-row">
+              <i class="ti ti-clock" style="color:var(--accent-blue);"></i>
+              <span>Sessions</span>
+              <span class="sidebar__wellness-val" id="sidebarSessions">0</span>
+            </div>
+            <div class="sidebar__wellness-row">
+              <i class="ti ti-run" style="color:var(--accent-green);"></i>
+              <span>Exercises</span>
+              <span class="sidebar__wellness-val" id="sidebarExercises">0</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- MAIN -->
+      <div class="main-wrap">
+        <div class="main-inner">
+
+          <div class="page-header">
+            <div class="page-header__label">Your health &amp; habits</div>
+            <h1 class="page-header__title">Wellness <span>Hub</span></h1>
+          </div>
+
+          <!-- Stats Row -->
+          <div class="w-stats-row">
+            <div class="stat-card">
+              <div class="stat-card__label">Study Streak</div>
+              <div class="stat-card__value stat-card__value--green" id="wStatStreak">0 days</div>
+              <div class="w-streak-dots" id="streakDots"></div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-card__label">Sessions Today</div>
+              <div class="stat-card__value stat-card__value--blue" id="wStatSessions">0</div>
+              <div class="stat-card__sub">focus blocks completed</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-card__label">Exercises Done</div>
+              <div class="stat-card__value stat-card__value--green" id="wStatExercises">0</div>
+              <div class="stat-card__sub">break exercises today</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-card__label">Today's Mood</div>
+              <div class="w-mood-row">
+                <span class="w-mood-emoji" id="wStatMoodEmoji">—</span>
+                <span class="w-mood-label" id="wStatMoodLabel">Not set</span>
+              </div>
+              <div class="w-mood-btns" id="wMoodBtns">
+                <button class="w-mood-btn" data-mood="1">1</button>
+                <button class="w-mood-btn" data-mood="2">2</button>
+                <button class="w-mood-btn" data-mood="3">3</button>
+                <button class="w-mood-btn" data-mood="4">4</button>
+                <button class="w-mood-btn" data-mood="5">5</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Charts Row -->
+          <div class="w-two-col">
+            <div class="wcard">
+              <div class="wcard__header">
+                <div class="wcard__title">Weekly Focus</div>
+                <div class="wcard__sub" id="focusTotal"></div>
+              </div>
+              <div class="bar-chart" id="focusChart"></div>
+            </div>
+            <div class="wcard">
+              <div class="wcard__header">
+                <div class="wcard__title">Mood Trend</div>
+                <div class="wcard__sub">Last 7 days</div>
+              </div>
+              <div class="mood-chart-wrap" id="moodChartWrap"></div>
+              <div class="mood-scale">
+                <span>😔</span><span>😕</span><span>😊</span><span>😄</span><span>🤩</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Activity Row -->
+          <div class="w-two-col">
+            <div class="wcard">
+              <div class="wcard__header">
+                <div class="wcard__title">Session History</div>
+                <button class="wcard__btn" id="wellnessStudyBtn">Study now</button>
+              </div>
+              <div class="history-list" id="sessionList"></div>
+            </div>
+            <div class="wcard">
+              <div class="wcard__header">
+                <div class="wcard__title">Exercise Log</div>
+                <div class="wcard__sub" id="exerciseTotal"></div>
+              </div>
+              <div class="log-list" id="exerciseList"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Eye Break Toast -->
+  <div class="toast" id="eyeToast" style="display:none;">
+    <i class="ti ti-eye" style="color:var(--accent-blue);flex-shrink:0;"></i>
+    <span>Time for your eye break. Look at something 20 feet away for 20 seconds.</span>
+    <button class="toast__btn" id="toastDismiss">Got it</button>
+  </div>
+
+  <script src="scripts/wellness.js"></script>
+</body>
+</html>
