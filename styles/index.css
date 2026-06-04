@@ -312,3 +312,34 @@
   0%, 100% { transform: translateY(0px); }
   50%       { transform: translateY(-7px); }
 }
+
+/* ── Media Queries (for smaller screens) ──────────────────────────────────────────────────────────── */
+@media (max-width: 1600px) {
+  .hero__brand-logo {
+    height: 80px;
+  }
+  .hero__brand-name {
+    font-size: 72px;
+  }
+  .hero__brand {
+    margin-bottom: 22px;
+  }
+  .hero__headline {
+    font-size: 64px;
+  }
+  .hero__sub {
+    font-size: 15px;
+    margin-bottom: 28px;
+  }
+  .hero__badge span {
+    font-size: 11px;
+  }
+  .hero__right {
+    padding: 20px 40px;
+  }
+  .cta-primary,
+  .cta-ghost {
+    font-size: 13px;
+    padding: 12px 20px;
+  }
+}
