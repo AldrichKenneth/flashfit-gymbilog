@@ -67,15 +67,11 @@
   padding: 72px 40px;
   border-right: 1px solid rgba(255,255,255,0.06);
 }
-.about__logo-mark {
-  width: 140px;
-  height: 140px;
-  border-radius: 32px;
-  background: rgba(77,159,255,0.1);
-  border: 1px solid rgba(77,159,255,0.25);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.about__logo-img {
+  width: 400px;
+  height: auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
 }
 .about__logo-mark span {
   font-size: 52px;
