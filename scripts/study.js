@@ -565,20 +565,22 @@ function closeExerciseOverlay(giveHeart) {
   clearInterval(exInterval);
   $('exerciseOverlay').style.display = 'none';
   exerciseQueued = false;
-  if (giveHeart && state.hearts < 5) {
-    state.hearts++;
+  if (giveHeart) {
     state.exercisesDone = (state.exercisesDone || 0) + 1;
     if (!state.exerciseLog) state.exerciseLog = [];
     if (currentExercise) {
-        state.exerciseLog.push({
-            date: todayLabel(),
-            name: currentExercise.name,
-            category: currentExercise.category
-        });
+      state.exerciseLog.unshift({
+        date: todayLabel(),
+        name: currentExercise.name,
+        category: currentExercise.category
+      });
+    }
+    if (state.hearts < 5) {
+      state.hearts++;
     }
     saveState(); updateHeartsUI(); renderHeartsCard(); renderFlashcard();
     updateSidebarWellness();
-}
+  }
   if (isManualBreak) {
     isManualBreak = false; startPomo();
   } else {
