@@ -130,6 +130,7 @@ let eyePaused   = false;
 let exSecs     = 0;
 let exTotal    = 0;
 let exInterval = null;
+let currentExercise = null;
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 const $ = id => document.getElementById(id);
@@ -430,6 +431,17 @@ function onPomoBlockEnd() {
   if (pomoState !== 'break') {
     pomoBlocksDone++;
     state.sessionsDone = (state.sessionsDone || 0) + 1;
+    if (!state.sessionLog) state.sessionLog = [];
+    if (selectedDeck) {
+      state.sessionLog.unshift({
+        date: todayLabel(),
+        deckName: selectedDeck.name,
+        icon: selectedDeck.icon,
+        color: selectedDeck.color,
+        correct: sessionCorrect,
+        again: sessionAgain
+      });
+    }
     saveState(); $('statSessions').textContent = state.sessionsDone;
     updateSidebarWellness();
     isLongBreak = pomoBlocksDone % 4 === 0;
@@ -522,6 +534,7 @@ function initDoItNow() {
 // ─── Exercise Overlay ─────────────────────────────────────────────────────────
 function showExerciseOverlay(durationSecs) {
   const ex = EXERCISES[Math.floor(Math.random() * EXERCISES.length)];
+  currentExercise = ex;
   exTotal = durationSecs; exSecs = durationSecs;
   clearInterval(exInterval);
   $('exBadge').textContent    = isManualBreak ? 'Exercise break' : (isLongBreak ? 'Long break' : 'Break time');
@@ -555,9 +568,17 @@ function closeExerciseOverlay(giveHeart) {
   if (giveHeart && state.hearts < 5) {
     state.hearts++;
     state.exercisesDone = (state.exercisesDone || 0) + 1;
+    if (!state.exerciseLog) state.exerciseLog = [];
+    if (currentExercise) {
+        state.exerciseLog.push({
+            date: todayLabel(),
+            name: currentExercise.name,
+            category: currentExercise.category
+        });
+    }
     saveState(); updateHeartsUI(); renderHeartsCard(); renderFlashcard();
     updateSidebarWellness();
-  }
+}
   if (isManualBreak) {
     isManualBreak = false; startPomo();
   } else {
